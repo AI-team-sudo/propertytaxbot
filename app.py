@@ -6,7 +6,7 @@ import os
 # Initialize OpenAI and Pinecone
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 pinecone.init(api_key=st.secrets["PINECONE_API_KEY"])
-index = pinecone.Index("your-index-name")
+index = pinecone.Index("gujtaxlaw")
 
 def get_embedding(text):
     response = client.embeddings.create(
