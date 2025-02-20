@@ -5,8 +5,8 @@ import os
 
 # Initialize OpenAI and Pinecone
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
-pinecone.init(api_key=st.secrets["PINECONE_API_KEY"])
-index = pinecone.Index("gujtaxlaw")
+pc = pinecone.Pinecone(api_key=st.secrets["PINECONE_API_KEY"])
+index = pc.Index("gujtaxlaw")
 
 def get_embedding(text):
     response = client.embeddings.create(
@@ -49,7 +49,7 @@ def get_chatgpt_response(query, context):
     )
     return response.choices[0].message.content
 
-# Streamlit UI
+# Streamlit UI remains the same
 st.title("ગુજરાતી ટેક્સ સહાયક | Gujarati Tax Assistant")
 st.write("Ask your tax-related questions in English or Gujarati (ગુજરાતી અથવા અંગ્રેજીમાં તમારા ટેક્સ સંબંધિત પ્રશ્નો પૂછો)")
 
