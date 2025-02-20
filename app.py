@@ -4,8 +4,8 @@ from openai import OpenAI
 import os
 
 # Initialize OpenAI and Pinecone
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-pinecone.init(api_key=os.getenv("PINECONE_API_KEY"), environment=os.getenv("PINECONE_ENV"))
+client = OpenAI(api_key=st.secrets("OPENAI_API_KEY"))
+pinecone.init(api_key=st.secrets("PINECONE_API_KEY"))
 index = pinecone.Index("your-index-name")
 
 def get_embedding(text):
